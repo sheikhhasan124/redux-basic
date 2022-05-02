@@ -5,7 +5,9 @@ const reducreFn = (state={counter:0},action)=>{
         case 'inc':
             return {...state, counter: state.counter + 1}
         case 'dic':
-            return {...state, counter:state.counter - 1}    
+            return {...state, counter:state.counter - 1}  
+        case 'add':
+            return {...state, counter:state.counter + action.payload}      
             default:
              return state;
     }
