@@ -1,7 +1,14 @@
 import { createStore } from "redux";
 
 const reducreFn = (state={counter:0},action)=>{
-return state;
+    switch(action.type){
+        case 'inc':
+            return {...state, counter: state.counter + 1}
+        case 'dic':
+            return {...state, counter:state.counter - 1}    
+            default:
+             return state;
+    }
 }
 
 const store = createStore(reducreFn)
