@@ -1,28 +1,32 @@
-
-import './App.css';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { actions } from './store';
 
-function App() {
-  const counter = useSelector((state)=>state.counter)
-  const dispatch = useDispatch()
-  const inc =()=>{
-    dispatch({type:'inc'})
-  }
-  const dec =()=>{
-    dispatch({type:'dic'})
-  }
-  const add =()=>{
-    dispatch({type:'add',payload:10})
-  }
-  return (
-    <div>
-       <h2>counter app</h2>
-       <h3>{counter}</h3>
-       <button onClick={inc}>inc</button>
-       <button onClick={dec}>dec</button>
-       <button onClick={add}>add 10</button>
-    </div>
-  );
-}
+const App = () => {
+
+    const counter = useSelector((state)=>state.counter)
+    const dispatch = useDispatch()
+
+    const inc =()=>{
+        dispatch(actions.inc())
+    }
+     const dec =()=>{
+        dispatch(actions.dec())
+     }
+    const add =()=>{
+        dispatch(actions.add(10))
+    }
+
+
+    return (
+
+        <div>
+            <h2>count: {counter}</h2>
+            <button onClick={inc}>inc</button>
+           <button onClick={dec}>dec</button>
+            <button onClick={add}>add 10</button>
+        </div>
+    );
+};
 
 export default App;
